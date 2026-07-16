@@ -1,0 +1,33 @@
+[build-system]
+requires = ["hatchling>=1.25"]
+build-backend = "hatchling.build"
+
+[project]
+name = "promptsentinel"
+version = "0.1.0"
+description = "Local-first prompt injection and adversarial prompt firewall."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "PromptSentinel" }]
+classifiers = ["Programming Language :: Python :: 3", "License :: OSI Approved :: MIT License"]
+dependencies = ["PyYAML>=6.0"]
+
+[project.optional-dependencies]
+api = ["fastapi>=0.115", "uvicorn[standard]>=0.30"]
+ml = ["torch>=2.4", "transformers>=4.46"]
+all = ["fastapi>=0.115", "uvicorn[standard]>=0.30", "torch>=2.4", "transformers>=4.46"]
+dev = ["pytest>=8.0", "httpx>=0.27", "fastapi>=0.115"]
+
+[project.scripts]
+promptsentinel = "promptsentinel.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["promptsentinel"]
+
+[tool.hatch.build.targets.wheel.force-include]
+"promptsentinel/config/default.yaml" = "promptsentinel/config/default.yaml"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"

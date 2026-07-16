@@ -1,0 +1,24 @@
+# PromptSentinel SDK configuration. Copy and customize for deployment.
+security:
+  risk_threshold:
+    block: 80
+    warn: 50
+normalization:
+  enabled: true
+  unicode_normalization: { enabled: true }
+  invisible_character_removal: { enabled: true }
+  base64_detection: { enabled: true }
+  url_decode: { enabled: true }
+regex:
+  enabled: true
+  rules:
+    prompt_injection: true
+    jailbreak: true
+    system_prompt_extraction: true
+    data_exfiltration: true
+ml:
+  enabled: true
+  model_path: "./models/security-classifier"
+logging:
+  enabled: true
+  level: INFO

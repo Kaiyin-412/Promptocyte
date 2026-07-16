@@ -1,0 +1,24 @@
+# Python
+backend/.venv/
+backend/__pycache__/
+backend/app/__pycache__/
+backend/tests/__pycache__/
+**/__pycache__/
+*.py[cod]
+.pytest_cache/
+backend/*.db
+backend/.env
+ml/model/
+
+# Node / Vite
+frontend/node_modules/
+frontend/dist/
+frontend/*.tsbuildinfo
+.pnpm-store/
+.cache/
+dist/
+*.egg-info/
+
+# Local tooling
+.env
+.DS_Store
