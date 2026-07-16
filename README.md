@@ -92,6 +92,16 @@ pip install promptsentinel-ai
 
 For a local source checkout, use `pip install .` or `pip install ".[api]"`.
 
+### Publishing to PyPI
+
+Build and validate the release, then upload only the `promptsentinel_ai` artifacts. Do not use a wildcard when stale build files may exist in `dist/`.
+
+```powershell
+python -m build --wheel --sdist
+python -m twine check dist/promptsentinel_ai-0.1.0-py3-none-any.whl dist/promptsentinel_ai-0.1.0.tar.gz
+python -m twine upload dist/promptsentinel_ai-0.1.0-py3-none-any.whl dist/promptsentinel_ai-0.1.0.tar.gz
+```
+
 ```python
 from promptsentinel import SecurityGuard
 
