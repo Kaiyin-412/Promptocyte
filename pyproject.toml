@@ -3,7 +3,7 @@ requires = ["hatchling>=1.25"]
 build-backend = "hatchling.build"
 
 [project]
-name = "promptsentinel"
+name = "promptsentinel-ai"
 version = "0.1.0"
 description = "Local-first prompt injection and adversarial prompt firewall."
 readme = "README.md"
@@ -12,6 +12,11 @@ license = { text = "MIT" }
 authors = [{ name = "PromptSentinel" }]
 classifiers = ["Programming Language :: Python :: 3", "License :: OSI Approved :: MIT License"]
 dependencies = ["PyYAML>=6.0"]
+
+[project.urls]
+Homepage = "https://github.com/Kaiyin-412/PromptSentinel"
+Repository = "https://github.com/Kaiyin-412/PromptSentinel"
+Issues = "https://github.com/Kaiyin-412/PromptSentinel/issues"
 
 [project.optional-dependencies]
 api = ["fastapi>=0.115", "uvicorn[standard]>=0.30"]

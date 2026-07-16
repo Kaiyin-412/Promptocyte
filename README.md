@@ -84,13 +84,13 @@ The final architecture, security decisions, implementation choices, and product 
 
 ## Python SDK
 
-Install the reusable local-first SDK from this repository:
+Install the reusable local-first SDK after it is published:
 
 ```powershell
-pip install .
-# Or include the API server dependencies:
-pip install ".[api]"
+pip install promptsentinel-ai
 ```
+
+For a local source checkout, use `pip install .` or `pip install ".[api]"`.
 
 ```python
 from promptsentinel import SecurityGuard
