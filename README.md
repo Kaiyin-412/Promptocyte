@@ -93,21 +93,13 @@ It accelerated:
 - Configuration management.
 - Debugging.
 - Testing.
+- Coding
 - Documentation improvements.
 
----
+### Collaboration Summary
 
-## Engineering Decisions
+GPT-5.6 served as a system design and planning partner, helping shape the architecture and generate high-quality implementation prompts. Codex then translated those plans into working code, accelerating development across the SDK, backend, frontend, and supporting tooling.
 
-The final technical decisions were made by the project team.
-
-Key decisions:
-
-- Use a local-first security architecture.
-- Avoid using another LLM as a security judge.
-- Run regex detection before ML classification.
-- Use ML only for unknown or complex attacks.
-- Provide explainable security decisions.
 
 ---
 
