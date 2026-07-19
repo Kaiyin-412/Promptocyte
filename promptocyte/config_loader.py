@@ -1,6 +1,6 @@
-"""YAML policy resolution for PromptSentinel.
+"""YAML policy resolution for Promptocyte.
 
-Priority is explicit path, then PROMPTSENTINEL_CONFIG, then the package default.
+Priority is explicit path, then PROMPTOCYTE_CONFIG, then the package default.
 User files are merged over defaults so a deployment can override one policy value
 without copying every safe default. The merged result is strictly validated.
 """
@@ -20,11 +20,11 @@ def _read_yaml(path: Path) -> dict[str, Any]:
     try:
         value = yaml.safe_load(path.read_text(encoding="utf-8"))
     except FileNotFoundError as error:
-        raise FileNotFoundError(f"PromptSentinel config file was not found: {path}") from error
+        raise FileNotFoundError(f"Promptocyte config file was not found: {path}") from error
     except yaml.YAMLError as error:
-        raise ValueError(f"PromptSentinel config is not valid YAML: {path}") from error
+        raise ValueError(f"Promptocyte config is not valid YAML: {path}") from error
     if not isinstance(value, dict):
-        raise ValueError(f"PromptSentinel config must contain a YAML mapping: {path}")
+        raise ValueError(f"Promptocyte config must contain a YAML mapping: {path}")
     return value
 
 
@@ -99,9 +99,9 @@ def _validate(raw: dict[str, Any]) -> GuardConfig:
 
 def load_config(path: str | Path | None = None) -> GuardConfig:
     """Load a validated config using explicit path > environment > package default."""
-    default_file = files("promptsentinel.config").joinpath("default.yaml")
+    default_file = files("promptocyte.config").joinpath("default.yaml")
     defaults = yaml.safe_load(default_file.read_text(encoding="utf-8"))
-    requested = path if path is not None else os.environ.get("PROMPTSENTINEL_CONFIG")
+    requested = path if path is not None else os.environ.get("PROMPTOCYTE_CONFIG")
     if requested is None:
         return _validate(defaults)
     user_path = Path(requested).expanduser()

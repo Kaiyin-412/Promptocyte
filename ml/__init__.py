@@ -1,1 +1,1 @@
-"""Local transformer training and inference components for PromptSentinel."""
+"""Local transformer training and inference components for Promptocyte."""

@@ -35,7 +35,7 @@ function App() {
   return <main className="min-h-screen bg-ink text-slate-100 selection:bg-cyan/30">
     <div className="ambient ambient-one" /><div className="ambient ambient-two" />
     <header className="relative z-10 flex items-center justify-between border-b border-white/10 px-6 py-4 lg:px-10">
-      <div className="flex items-center gap-3"><div className="grid h-10 w-10 place-items-center rounded-xl bg-cyan text-ink shadow-glow"><ShieldCheck size={23} /></div><div><h1 className="text-lg font-bold tracking-tight">Prompt<span className="text-cyan">Sentinel</span></h1><p className="text-xs text-slate-400">AI prompt firewall</p></div></div>
+      <div className="flex items-center gap-3"><div className="grid h-10 w-10 place-items-center rounded-xl bg-cyan text-ink shadow-glow"><ShieldCheck size={23} /></div><div><h1 className="text-lg font-bold tracking-tight">Prompt<span className="text-cyan">ocyte</span></h1><p className="text-xs text-slate-400">AI prompt firewall</p></div></div>
       <div className="flex items-center gap-2 rounded-full border border-emerald-400/20 bg-emerald-400/10 px-3 py-1.5 text-xs font-medium text-emerald-300"><span className="h-2 w-2 animate-pulse rounded-full bg-emerald-400" /> Protection active</div>
     </header>
     <section className="relative z-10 mx-auto max-w-7xl px-6 py-8 lg:px-10">

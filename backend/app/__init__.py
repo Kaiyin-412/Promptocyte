@@ -1,1 +1,1 @@
-"""PromptSentinel API package."""
+"""Promptocyte API package."""

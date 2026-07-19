@@ -16,6 +16,7 @@ frontend/dist/
 frontend/*.tsbuildinfo
 .pnpm-store/
 .cache/
+.tmp-pytest/
 dist/
 *.egg-info/
 

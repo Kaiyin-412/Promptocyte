@@ -1,5 +1,5 @@
 """Protect user input before passing it to an OpenAI client (client call intentionally omitted)."""
-from promptsentinel import SecurityGuard
+from promptocyte import SecurityGuard
 
 guard = SecurityGuard("config.yaml")
 user_prompt = "Summarize our support policy."

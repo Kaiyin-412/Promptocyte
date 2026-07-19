@@ -1,4 +1,4 @@
-"""GPU-aware local DistilBERT training for PromptSentinel (model architecture unchanged)."""
+"""GPU-aware local DistilBERT training for Promptocyte (model architecture unchanged)."""
 from __future__ import annotations
 
 import argparse

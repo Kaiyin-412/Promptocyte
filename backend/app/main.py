@@ -24,7 +24,7 @@ with engine.begin() as connection:
     if "transformations" not in columns:
         connection.execute(text("ALTER TABLE analysis_records ADD COLUMN transformations TEXT NOT NULL DEFAULT '[]'"))
 
-app = FastAPI(title="PromptSentinel API", version="1.0.0")
+app = FastAPI(title="Promptocyte API", version="1.0.0")
 app.add_middleware(CORSMiddleware, allow_origins=["http://localhost:5173"], allow_credentials=True, allow_methods=["*"], allow_headers=["*"])
 
 

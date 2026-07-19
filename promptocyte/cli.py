@@ -5,7 +5,7 @@ import json
 from .guard import SecurityGuard
 
 def main() -> None:
-    parser = argparse.ArgumentParser(prog="promptsentinel", description="Scan prompts with local PromptSentinel security controls.")
+    parser = argparse.ArgumentParser(prog="promptocyte", description="Scan prompts with local Promptocyte security controls.")
     sub = parser.add_subparsers(dest="command", required=True)
     scan = sub.add_parser("scan", help="Analyze one prompt")
     scan.add_argument("prompt")

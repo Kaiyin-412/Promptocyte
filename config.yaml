@@ -1,4 +1,4 @@
-# PromptSentinel SDK configuration. Copy and customize for deployment.
+# Promptocyte SDK configuration. Copy and customize for deployment.
 security:
   risk_threshold:
     block: 80

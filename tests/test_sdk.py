@@ -1,4 +1,4 @@
-from promptsentinel import SecurityGuard
+from promptocyte import SecurityGuard
 
 
 def test_safe_prompt_is_allowed():

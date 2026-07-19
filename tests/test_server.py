@@ -2,7 +2,7 @@ import pytest
 
 fastapi = pytest.importorskip("fastapi")
 from fastapi.testclient import TestClient
-from promptsentinel.server import create_app
+from promptocyte.server import create_app
 
 
 def test_versioned_analyze_endpoint():

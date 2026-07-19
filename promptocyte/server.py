@@ -1,4 +1,4 @@
-"""Versioned FastAPI server factory for PromptSentinel."""
+"""Versioned FastAPI server factory for Promptocyte."""
 from __future__ import annotations
 from fastapi import FastAPI
 from pydantic import BaseModel, Field
@@ -9,7 +9,7 @@ class AnalyzeRequest(BaseModel):
 
 def create_app(config_path: str | None = None) -> FastAPI:
     guard = SecurityGuard(config_path)
-    app = FastAPI(title="PromptSentinel API", version="0.1.0")
+    app = FastAPI(title="Promptocyte API", version="0.1.0")
     @app.get("/health")
     def health(): return {"status": "ok"}
     @app.post("/v1/security/analyze")

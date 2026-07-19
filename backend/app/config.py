@@ -2,7 +2,7 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
 class Settings(BaseSettings):
-    database_url: str = "sqlite:///./promptsentinel.db"
+    database_url: str = "sqlite:///./promptocyte.db"
     ml_model_path: str = "../ml/model"
     allow_threshold: int = 49
     warn_threshold: int = 79

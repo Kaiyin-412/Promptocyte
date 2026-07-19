@@ -1,12 +1,12 @@
-# PromptSentinel
+# Promptocyte
 
-PromptSentinel is a local-first Python SDK that protects LLM applications from prompt injection and adversarial inputs before user prompts reach an AI model.
+Promptocyte is a local-first Python SDK that protects LLM applications from prompt injection and adversarial inputs before user prompts reach an AI model.
 
 It acts as an AI security firewall by analyzing prompts through a layered security pipeline:
 
 **Prompt Normalization → Regex Detection → Local ML Classification → Risk Decision**
 
-PromptSentinel provides explainable security decisions:
+Promptocyte provides explainable security decisions:
 
 - Allow
 - Warn
@@ -20,11 +20,11 @@ Each decision includes security context such as:
 - Detection source
 - Normalization transformations
 
-Unlike LLM-based guardrails that use another AI model to judge prompts, PromptSentinel performs security analysis locally using deterministic rules and a locally trained ML classifier. This provides privacy-focused, fast, and transparent AI security protection.
+Unlike LLM-based guardrails that use another AI model to judge prompts, Promptocyte performs security analysis locally using deterministic rules and a locally trained ML classifier. This provides privacy-focused, fast, and transparent AI security protection.
 
 ---
 
-# Why PromptSentinel?
+# Why Promptocyte?
 
 Modern LLM applications accept untrusted user input and are vulnerable to:
 
@@ -35,7 +35,7 @@ Modern LLM applications accept untrusted user input and are vulnerable to:
 - Tool abuse
 - Obfuscated attacks
 
-PromptSentinel acts as a security layer between users and LLM applications:
+Promptocyte acts as a security layer between users and LLM applications:
 
 ```text
 User Prompt
@@ -44,7 +44,7 @@ User Prompt
 
       v
 
-PromptSentinel Security Analysis
+Promptocyte Security Analysis
 
       |
 
@@ -59,13 +59,13 @@ Safe Prompt
 LLM Application
 ```
 
-The goal of PromptSentinel is to help developers secure AI applications before malicious instructions can influence an LLM.
+The goal of Promptocyte is to help developers secure AI applications before malicious instructions can influence an LLM.
 
 ---
 
 # Development with GPT-5.6 and Codex
 
-PromptSentinel was developed through a collaborative workflow between GPT-5.6, Codex, and the project team.
+Promptocyte was developed through a collaborative workflow between GPT-5.6, Codex, and the project team.
 
 ## GPT-5.6 Contribution
 
@@ -96,16 +96,31 @@ It accelerated:
 - Coding
 - Documentation improvements.
 
+## Key Engineering Decisions
+
+While GPT-5.6 and Codex accelerated development, the final product and engineering decisions were made by the me.
+
+Key design decisions included:
+
+- Using a **local-first** security architecture instead of relying on another LLM for prompt evaluation.
+- Applying **prompt normalization before detection** to identify obfuscated attacks.
+- Using **regex as the first detection layer** for known attack patterns.
+- Using a **locally trained DistilBERT model** only when regex rules cannot confidently classify a prompt.
+- Returning **explainable security decisions** (Allow / Warn / Block, confidence score, detection source, and reasoning) rather than a simple pass/fail result.
+- Packaging the project as a reusable **Python SDK** .
+
 ### Collaboration Summary
 
 GPT-5.6 served as a system design and planning partner, helping shape the architecture and generate high-quality implementation prompts. Codex then translated those plans into working code, accelerating development across the SDK, backend, frontend, and supporting tooling.
+
+The final architecture, security strategy, implementation choices, and overall product direction were reviewed, integrated, and decided by me.
 
 
 ---
 
 # Architecture
 
-PromptSentinel uses a **Regex-First, ML-Second** security pipeline.
+Promptocyte uses a **Regex-First, ML-Second** security pipeline.
 
 ```text
                     User Prompt
@@ -151,7 +166,7 @@ PromptSentinel uses a **Regex-First, ML-Second** security pipeline.
 
 ### 1. Prompt Normalization
 
-Before detection, PromptSentinel normalizes the input locally to expose hidden attack patterns.
+Before detection, Promptocyte normalizes the input locally to expose hidden attack patterns.
 
 Examples:
 
@@ -234,7 +249,7 @@ Detects:
 
 ## Local-First Protection
 
-PromptSentinel performs security analysis locally.
+Promptocyte performs security analysis locally.
 
 Benefits:
 
@@ -247,7 +262,7 @@ Benefits:
 
 ## Developer Integration
 
-PromptSentinel provides:
+Promptocyte provides:
 
 - Python SDK
 
@@ -258,13 +273,13 @@ PromptSentinel provides:
 ## Install SDK
 
 ```bash
-pip install promptsentinel-ai
+pip install promptocyte
 ```
 
 Example:
 
 ```python
-from promptsentinel import SecurityGuard
+from promptocyte import SecurityGuard
 
 guard = SecurityGuard()
 
@@ -304,7 +319,7 @@ Example response:
 `SecurityGuard` is the primary developer interface.
 
 ```python
-from promptsentinel import SecurityGuard
+from promptocyte import SecurityGuard
 
 guard = SecurityGuard()
 
@@ -338,7 +353,7 @@ Returned fields:
 
 # REST API and Dashboard
 
-PromptSentinel includes a FastAPI backend and React dashboard for testing and monitoring.
+Promptocyte includes a FastAPI backend and React dashboard for testing and monitoring.
 
 ## Backend
 
@@ -381,7 +396,7 @@ The backend provides:
 
 # Supported Platforms
 
-PromptSentinel supports:
+Promptocyte supports:
 
 - Windows
 - Linux
@@ -398,7 +413,7 @@ GPU acceleration is optional and only required for ML training.
 
 # Local ML Training
 
-PromptSentinel includes a synthetic dataset for training the local DistilBERT classifier.
+Promptocyte includes a synthetic dataset for training the local DistilBERT classifier.
 
 Training:
 
@@ -414,7 +429,7 @@ GPU acceleration is supported when CUDA-enabled PyTorch is installed.
 
 # Security Design
 
-PromptSentinel is a security layer, not a complete application security solution.
+Promptocyte is a security layer, not a complete application security solution.
 
 Recommended production practices:
 
@@ -425,16 +440,16 @@ Recommended production practices:
 - Rate limiting
 - Human review for high-impact actions
 
-PromptSentinel provides one additional layer of protection before untrusted input reaches an LLM.
+Promptocyte provides one additional layer of protection before untrusted input reaches an LLM.
 
 ---
 
 # Project Structure
 
 ```text
-PromptSentinel/
+Promptocyte/
 
-├── promptsentinel/   # Python SDK, CLI, SDK server
+├── promptocyte/      # Python SDK, CLI, SDK server
 ├── backend/          # FastAPI backend and SQLite audit storage
 ├── frontend/         # React security dashboard
 ├── ml/               # DistilBERT training and inference

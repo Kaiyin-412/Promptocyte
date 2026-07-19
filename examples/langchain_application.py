@@ -1,5 +1,5 @@
 """Use the guard before invoking any LangChain chain."""
-from promptsentinel import SecurityGuard
+from promptocyte import SecurityGuard
 
 guard = SecurityGuard("config.yaml")
 def guarded_invoke(chain, user_input: str):

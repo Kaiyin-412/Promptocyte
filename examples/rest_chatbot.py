@@ -1,5 +1,5 @@
 """Minimal generic REST handler pattern."""
-from promptsentinel import SecurityGuard
+from promptocyte import SecurityGuard
 
 guard = SecurityGuard("config.yaml")
 def handle_chat(payload: dict) -> dict:
