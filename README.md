@@ -73,11 +73,11 @@ GPT-5.6 was used during the planning and architecture phase.
 
 It helped with:
 
-- Defining the AI security problem.
 - Designing the layered security architecture.
 - Creating threat scenarios.
 - Comparing LLM-based guardrails with local ML approaches.
 - Generating implementation prompts for Codex.
+- Checking whether new features practical and achievable.
 
 ---
 
