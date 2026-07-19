@@ -19,10 +19,15 @@ class Detection:
     category: str
     confidence: float
     source: str
+    explanation: str = ""
+    evidence: tuple[str, ...] = ()
 
 
 def regex_detect(prompt: NormalizedPrompt) -> Detection | None:
     for category, patterns in PATTERNS.items():
-        if any(re.search(pattern, prompt.value, flags=re.IGNORECASE) for pattern in patterns):
-            return Detection(category, 0.95, "regex")
+        for pattern in patterns:
+            match = re.search(pattern, prompt.value, flags=re.IGNORECASE)
+            if match:
+                phrase = match.group(0)
+                return Detection(category, 0.95, "regex", f"Matched known {category.replace('_', ' ')} rule: '{phrase}'.", (phrase,))
     return None

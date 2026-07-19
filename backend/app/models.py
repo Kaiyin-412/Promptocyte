@@ -18,6 +18,7 @@ class AnalysisRecord(Base):
     severity: Mapped[str] = mapped_column(String(16))
     decision: Mapped[str] = mapped_column(String(16))
     explanation: Mapped[str] = mapped_column(Text)
+    evidence: Mapped[str] = mapped_column(Text, default="[]")
     confidence: Mapped[int] = mapped_column(Integer)  # Stored as confidence * 1000.
     source: Mapped[str] = mapped_column(String(16), default="regex")
     created_at: Mapped[datetime] = mapped_column(DateTime, default=datetime.utcnow)

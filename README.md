@@ -348,6 +348,8 @@ Returned fields:
 | `detection_source` | regex or local ML |
 | `normalized_prompt` | Processed prompt |
 | `transformations` | Detected transformations |
+| `explanation` | Local rule or classifier rationale for the decision |
+| `evidence` | Matched regex phrase or ML tokens with the strongest positive score impact |
 
 ---
 

@@ -33,7 +33,8 @@ def analyze_prompt(prompt: str) -> AnalyzeResponse:
             transformation_detected=normalization.transformation_detected, transformations=normalization.transformations,
             risk_score=risk.score, category=regex_result.category, severity=risk.severity,
             decision=risk.decision, confidence=regex_result.confidence, source="regex",
-            explanation=f"Known {regex_result.category.replace('_', ' ')} indicator matched by the fast security rules.",
+            explanation=f"Known {regex_result.category.replace('_', ' ')} indicator matched by the fast security rules: '{regex_result.matched_pattern}'.",
+            evidence=[regex_result.matched_pattern] if regex_result.matched_pattern else [],
         )
 
     prediction = classifier().predict(normalization.normalized_prompt)
@@ -44,5 +45,6 @@ def analyze_prompt(prompt: str) -> AnalyzeResponse:
         transformation_detected=normalization.transformation_detected, transformations=normalization.transformations,
         risk_score=risk.score, category=prediction.category, severity=risk.severity,
         decision=risk.decision, confidence=prediction.confidence, source="ml",
-        explanation=f"Classified by {availability_note}; no known regex attack pattern matched.",
+        explanation=prediction.explanation or f"Classified by {availability_note}; no known regex attack pattern matched.",
+        evidence=list(prediction.evidence),
     )
