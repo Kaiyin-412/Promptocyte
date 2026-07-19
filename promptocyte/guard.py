@@ -28,6 +28,4 @@ class SecurityGuard:
             "risk_score": score, "decision": decision, "detection_source": detection.source,
             "original_prompt": normalized.original, "normalized_prompt": normalized.value,
             "transformation_detected": bool(normalized.transformations), "transformations": normalized.transformations,
-            "explanation": detection.explanation,
-            "evidence": list(detection.evidence),
         }

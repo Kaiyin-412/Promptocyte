@@ -245,16 +245,6 @@ Detects:
 - Tool abuse
 - Obfuscated malicious prompts
 
-### Explainable ML Decisions
-
-When the local DistilBERT classifier flags a prompt, Promptocyte explains the result with local token-occlusion attribution. It removes bounded input tokens one at a time, measures the change in the predicted category confidence, and returns the most influential tokens as evidence.
-
-- `explanation` describes the local classifier or matched security rule.
-- `evidence` lists the matched regex phrase or the most influential ML tokens.
-- No LLM or external API is used to generate the explanation.
-
----
-
 ## Local-First Protection
 
 Promptocyte performs security analysis locally.
@@ -356,8 +346,6 @@ Returned fields:
 | `detection_source` | regex or local ML |
 | `normalized_prompt` | Processed prompt |
 | `transformations` | Detected transformations |
-| `explanation` | Local rule or classifier rationale for the decision |
-| `evidence` | Matched regex phrase or ML tokens with the strongest positive score impact |
 
 ---
 

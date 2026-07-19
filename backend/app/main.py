@@ -23,8 +23,6 @@ with engine.begin() as connection:
         connection.execute(text("ALTER TABLE analysis_records ADD COLUMN normalized_prompt TEXT NOT NULL DEFAULT ''"))
     if "transformations" not in columns:
         connection.execute(text("ALTER TABLE analysis_records ADD COLUMN transformations TEXT NOT NULL DEFAULT '[]'"))
-    if "evidence" not in columns:
-        connection.execute(text("ALTER TABLE analysis_records ADD COLUMN evidence TEXT NOT NULL DEFAULT '[]'"))
 
 app = FastAPI(title="Promptocyte API", version="1.0.0")
 app.add_middleware(CORSMiddleware, allow_origins=["http://localhost:5173"], allow_credentials=True, allow_methods=["*"], allow_headers=["*"])
@@ -45,7 +43,6 @@ def analyze(payload: AnalyzeRequest, db: Session = Depends(get_db)):
         transformations=json.dumps(result.transformations),
         risk_score=values["risk_score"], category=values["category"], severity=values["severity"],
         decision=values["decision"], explanation=values["explanation"], confidence=values["confidence"], source=values["source"],
-        evidence=json.dumps(values["evidence"]),
     )
     db.add(record)
     db.commit()
@@ -60,7 +57,7 @@ def history(limit: int = 20, db: Session = Depends(get_db)):
         id=item.id, prompt=item.prompt, original_prompt=item.prompt, normalized_prompt=item.normalized_prompt,
         transformation_detected=bool(json.loads(item.transformations or "[]")), transformations=json.loads(item.transformations or "[]"),
         risk_score=item.risk_score, category=item.category, severity=item.severity, decision=item.decision,
-        explanation=item.explanation, evidence=json.loads(item.evidence or "[]"), confidence=item.confidence / 1000, source=item.source, created_at=item.created_at,
+        explanation=item.explanation, confidence=item.confidence / 1000, source=item.source, created_at=item.created_at,
     ) for item in records]
 
 
