@@ -113,7 +113,7 @@ Key design decisions included:
 
 GPT-5.6 served as a system design and planning partner, helping shape the architecture and generate high-quality implementation prompts. Codex then translated those plans into working code, accelerating development across the SDK, backend, frontend, and supporting tooling.
 
-The final architecture, security strategy, implementation choices, and overall product direction were reviewed, integrated, and decided by me.
+The final architecture, security strategy, improvement , implementation choices, and overall product direction were reviewed, integrated, and decided by me.
 
 
 ---
